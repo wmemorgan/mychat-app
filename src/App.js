@@ -8,7 +8,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-
+        <RoomList />
+        <MessageList />
+        <SendMessageFrom />
+        <NewRoomForm />
       </div>
     );
   }

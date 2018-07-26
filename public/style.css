@@ -1,9 +1,31 @@
-:root {
+/* Original Color Scheme*/
+/* :root {
     --main-color: #5ea3d0;
     --secondary-color: white;
     --main-text-color: #3e5869;
     --secondary-text-color: #b0c7d6;
     --send-message-form: #F5F5F5;
+    --accent-color: white;
+} */
+
+/* CMBS Color Scheme*/
+/* :root {
+    --main-color: #022140;
+    --secondary-color: #FFFFFF;
+    --main-text-color: #265077;
+    --secondary-text-color: #C5CAE9;
+    --send-message-form: #F5F5F5;
+    --accent-color: #51a7f8;
+} */
+
+/* CMBS Color Scheme (Alternate) */
+:root {
+    --main-color: #265077;
+    --secondary-color: #FFFFFF;
+    --main-text-color: #022140;
+    --secondary-text-color:#ccc;
+    --send-message-form: #F5F5F5;
+    --accent-color: #51a7f8;
 }
 
 html, body {
@@ -81,7 +103,7 @@ html, body {
  }
 
 .rooms-list .room.active a {
-    color: var(--secondary-color);
+    color: var(--accent-color);
 }
 
 .new-room-form {

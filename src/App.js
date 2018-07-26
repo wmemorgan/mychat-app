@@ -3,7 +3,7 @@ import Chatkit from '@pusher/chatkit'
 import MessageList from './components/MessageList'
 import SendMessageFrom from './components/SendMessageForm'
 import RoomList from './components/RoomList'
-// import NewRoomForm from './components/NewRoomForm'
+import NewRoomForm from './components/NewRoomForm';
 
 import { tokenUrl, instanceLocator } from './config'
 
@@ -19,6 +19,7 @@ class App extends Component {
     this.sendMessage = this.sendMessage.bind(this)
     this.subscribeToRoom = this.subscribeToRoom.bind(this)
     this.getRooms = this.getRooms.bind(this)
+    this.createRoom = this.createRoom.bind(this)
   }
 
   componentDidMount() {
@@ -78,6 +79,14 @@ class App extends Component {
     })
   }
 
+  createRoom(name) {
+    this.currentUser.createRoom({
+      name
+    })
+    .then(room => this.subscribeToRoom(room.id))
+    .catch(err => console.log(`error with createRoom: ${err}`))
+  }
+
   render() {
     return (
       <div className="App">
@@ -85,8 +94,13 @@ class App extends Component {
           roomId={this.state.roomId} 
           subscribeToRoom={this.subscribeToRoom} 
           rooms={[...this.state.joinableRooms, ...this.state.joinedRooms]} />
-        <MessageList messages={this.state.messages}/>
-        <SendMessageFrom sendMessage={this.sendMessage}/>
+        <MessageList
+          roomId = {this.state.roomId} 
+          messages={this.state.messages}/>
+        <SendMessageFrom
+          disabled={!this.state.roomId} 
+          sendMessage={this.sendMessage}/>
+        <NewRoomForm createRoom={this.createRoom} />
       </div>
     );
   }

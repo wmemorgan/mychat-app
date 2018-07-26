@@ -68,7 +68,7 @@ html, body {
     margin: 10px 0;
 }
 
-.rooms-list > h3 {
+.rooms-list >* h3 {
     margin: 5px 0;
     color: var(--secondary-color);
 }

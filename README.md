@@ -1,5 +1,7 @@
 # My Chat App
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/wmemorgan/mychat-app.svg)](https://greenkeeper.io/)
+
 A chat application
 
 ---
